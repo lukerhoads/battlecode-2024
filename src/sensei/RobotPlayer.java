@@ -14,9 +14,9 @@ public strictfp class RobotPlayer {
     static final Random rng = new Random(6147);
     static Pathfinder pathfinder;
     static boolean levelGrinder;
-    static int assignedEnemyFlag;
     static MapLocation[] startingAllyFlagLocations;
-    static int assignedAllyFlag;
+    static MapLocation spawnLocation;
+    static MapLocation reflectedSpawnLocation;
 
     /** Array containing all the possible movement directions. */
     static final Direction[] directions = {
@@ -36,12 +36,14 @@ public strictfp class RobotPlayer {
         if (startingAllyFlagLocations == null) startingAllyFlagLocations = blitzer.Utilities.getFlagLocations(rc);
         while (true) {
             turnCount += 1; 
+
+            if (turnCount % 750 == 0) {
+                warrior.Utilities.globalUpgrade(rc);
+            } 
+
             try {
                 if (!rc.isSpawned()) {
-                    // MapLocation[] spawnLocations = rc.getAllySpawnLocations();
-                    // if (rc.canSpawn(spawnLocations[26])) rc.spawn(spawnLocations[26]);
                     Spawning.spamSpawn(rc);
-                    Communication.assignTargetFlag(rc);
                 } else {
                     if (rc.getRoundNum() > 200) {
                         MainPhase.play(rc);

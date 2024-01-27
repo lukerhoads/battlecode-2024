@@ -415,35 +415,35 @@ public class Dijkstra20 {
         distance68 = 1_000_000.0;
 
         if (blockedDirection != Direction.WEST && rc.canMove(Direction.WEST)) {
-            distance1 = 1.0 + myLocation.distanceSquaredTo(location1);
+            distance1 = location1.distanceSquaredTo(target) + (rc.senseMapInfo(location1).isWall() ? 10000 : 0);;
             direction1 = Direction.WEST;
         }
         if (blockedDirection != Direction.EAST && rc.canMove(Direction.EAST)) {
-            distance2 = 1.0 + myLocation.distanceSquaredTo(location2);
+            distance2 = location2.distanceSquaredTo(target) + (rc.senseMapInfo(location2).isWall() ? 10000 : 0);;
             direction2 = Direction.EAST;
         }
         if (blockedDirection != Direction.SOUTH && rc.canMove(Direction.SOUTH)) {
-            distance3 = 1.0 + myLocation.distanceSquaredTo(location3);
+            distance3 = location3.distanceSquaredTo(target) + (rc.senseMapInfo(location3).isWall() ? 10000 : 0);;
             direction3 = Direction.SOUTH;
         }
         if (blockedDirection != Direction.NORTH && rc.canMove(Direction.NORTH)) {
-            distance4 = 1.0 + myLocation.distanceSquaredTo(location4);
+            distance4 = location4.distanceSquaredTo(target) + (rc.senseMapInfo(location4).isWall() ? 10000 : 0);;
             direction4 = Direction.NORTH;
         }
         if (blockedDirection != Direction.SOUTHWEST && rc.canMove(Direction.SOUTHWEST)) {
-            distance5 = 1.0 + myLocation.distanceSquaredTo(location5);
+            distance5 = location5.distanceSquaredTo(target) + (rc.senseMapInfo(location5).isWall() ? 10000 : 0);;
             direction5 = Direction.SOUTHWEST;
         }
         if (blockedDirection != Direction.NORTHWEST && rc.canMove(Direction.NORTHWEST)) {
-            distance6 = 1.0 + myLocation.distanceSquaredTo(location6);
+            distance6 = location6.distanceSquaredTo(target) + (rc.senseMapInfo(location6).isWall() ? 10000 : 0);;
             direction6 = Direction.NORTHWEST;
         }
         if (blockedDirection != Direction.SOUTHEAST && rc.canMove(Direction.SOUTHEAST)) {
-            distance7 = 1.0 + myLocation.distanceSquaredTo(location7);
+            distance7 = location7.distanceSquaredTo(target) + (rc.senseMapInfo(location7).isWall() ? 10000 : 0);;
             direction7 = Direction.SOUTHEAST;
         }
         if (blockedDirection != Direction.NORTHEAST && rc.canMove(Direction.NORTHEAST)) {
-            distance8 = 1.0 + myLocation.distanceSquaredTo(location8);
+            distance8 = location8.distanceSquaredTo(target) + (rc.senseMapInfo(location8).isWall() ? 10000 : 0);;
             direction8 = Direction.NORTHEAST;
         }
         switch (myX) {
@@ -451,7 +451,7 @@ public class Dijkstra20 {
             case 1:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location9);
+                weight = location9.distanceSquaredTo(target) + (rc.senseMapInfo(location9).isWall() ? 10000 : 0);;
                 if (distance1 + weight < distance9) {
                     distance9 = distance1 + weight;
                     direction9 = direction1;
@@ -471,7 +471,7 @@ public class Dijkstra20 {
             case 2:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location12);
+                weight = location12.distanceSquaredTo(target) + (rc.senseMapInfo(location12).isWall() ? 10000 : 0);;
                 if (distance2 + weight < distance12) {
                     distance12 = distance2 + weight;
                     direction12 = direction2;
@@ -490,7 +490,7 @@ public class Dijkstra20 {
             case 1:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location15);
+                weight = location15.distanceSquaredTo(target) + (rc.senseMapInfo(location15).isWall() ? 10000 : 0);;
                 if (distance3 + weight < distance15) {
                     distance15 = distance3 + weight;
                     direction15 = direction3;
@@ -510,7 +510,7 @@ public class Dijkstra20 {
             case 2:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location18);
+                weight = location18.distanceSquaredTo(target) + (rc.senseMapInfo(location18).isWall() ? 10000 : 0);;
                 if (distance4 + weight < distance18) {
                     distance18 = distance4 + weight;
                     direction18 = direction4;
@@ -533,7 +533,7 @@ public class Dijkstra20 {
                     case 0:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location10);
+                        weight = location10.distanceSquaredTo(target) + (rc.senseMapInfo(location10).isWall() ? 10000 : 0);;
                         if (distance5 + weight < distance10) {
                             distance10 = distance5 + weight;
                             direction10 = direction5;
@@ -558,7 +558,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location11);
+                        weight = location11.distanceSquaredTo(target) + (rc.senseMapInfo(location11).isWall() ? 10000 : 0);;
                         if (distance6 + weight < distance11) {
                             distance11 = distance6 + weight;
                             direction11 = direction6;
@@ -583,7 +583,7 @@ public class Dijkstra20 {
                     case 0:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location13);
+                        weight = location13.distanceSquaredTo(target) + (rc.senseMapInfo(location13).isWall() ? 10000 : 0);;
                         if (distance7 + weight < distance13) {
                             distance13 = distance7 + weight;
                             direction13 = direction7;
@@ -609,7 +609,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location14);
+                        weight = location14.distanceSquaredTo(target) + (rc.senseMapInfo(location14).isWall() ? 10000 : 0);;
                         if (distance8 + weight < distance14) {
                             distance14 = distance8 + weight;
                             direction14 = direction8;
@@ -633,7 +633,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location16);
+                        weight = location16.distanceSquaredTo(target) + (rc.senseMapInfo(location16).isWall() ? 10000 : 0);;
                         if (distance15 + weight < distance16) {
                             distance16 = distance15 + weight;
                             direction16 = direction15;
@@ -658,7 +658,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location17);
+                        weight = location17.distanceSquaredTo(target) + (rc.senseMapInfo(location17).isWall() ? 10000 : 0);;
                         if (distance15 + weight < distance17) {
                             distance17 = distance15 + weight;
                             direction17 = direction15;
@@ -683,7 +683,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location19);
+                        weight = location19.distanceSquaredTo(target) + (rc.senseMapInfo(location19).isWall() ? 10000 : 0);;
                         if (distance18 + weight < distance19) {
                             distance19 = distance18 + weight;
                             direction19 = direction18;
@@ -709,7 +709,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location20);
+                        weight = location20.distanceSquaredTo(target) + (rc.senseMapInfo(location20).isWall() ? 10000 : 0);;
                         if (distance18 + weight < distance20) {
                             distance20 = distance18 + weight;
                             direction20 = direction18;
@@ -734,7 +734,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location21);
+                        weight = location21.distanceSquaredTo(target) + (rc.senseMapInfo(location21).isWall() ? 10000 : 0);;
                         if (distance16 + weight < distance21) {
                             distance21 = distance16 + weight;
                             direction21 = direction16;
@@ -760,7 +760,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location22);
+                        weight = location22.distanceSquaredTo(target) + (rc.senseMapInfo(location22).isWall() ? 10000 : 0);;
                         if (distance19 + weight < distance22) {
                             distance22 = distance19 + weight;
                             direction22 = direction19;
@@ -786,7 +786,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location23);
+                        weight = location23.distanceSquaredTo(target) + (rc.senseMapInfo(location23).isWall() ? 10000 : 0);;
                         if (distance17 + weight < distance23) {
                             distance23 = distance17 + weight;
                             direction23 = direction17;
@@ -813,7 +813,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location24);
+                        weight = location24.distanceSquaredTo(target) + (rc.senseMapInfo(location24).isWall() ? 10000 : 0);;
                         if (distance20 + weight < distance24) {
                             distance24 = distance20 + weight;
                             direction24 = direction20;
@@ -834,7 +834,7 @@ public class Dijkstra20 {
             case 2:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location25);
+                weight = location25.distanceSquaredTo(target) + (rc.senseMapInfo(location25).isWall() ? 10000 : 0);;
                 if (distance9 + weight < distance25) {
                     distance25 = distance9 + weight;
                     direction25 = direction9;
@@ -855,7 +855,7 @@ public class Dijkstra20 {
             case 3:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location30);
+                weight = location30.distanceSquaredTo(target) + (rc.senseMapInfo(location30).isWall() ? 10000 : 0);;
                 if (distance12 + weight < distance30) {
                     distance30 = distance12 + weight;
                     direction30 = direction12;
@@ -875,7 +875,7 @@ public class Dijkstra20 {
             case 2:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location35);
+                weight = location35.distanceSquaredTo(target) + (rc.senseMapInfo(location35).isWall() ? 10000 : 0);;
                 if (distance15 + weight < distance35) {
                     distance35 = distance15 + weight;
                     direction35 = direction15;
@@ -896,7 +896,7 @@ public class Dijkstra20 {
             case 3:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location40);
+                weight = location40.distanceSquaredTo(target) + (rc.senseMapInfo(location40).isWall() ? 10000 : 0);;
                 if (distance18 + weight < distance40) {
                     distance40 = distance18 + weight;
                     direction40 = direction18;
@@ -920,7 +920,7 @@ public class Dijkstra20 {
                     case 0:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location26);
+                        weight = location26.distanceSquaredTo(target) + (rc.senseMapInfo(location26).isWall() ? 10000 : 0);;
                         if (distance10 + weight < distance26) {
                             distance26 = distance10 + weight;
                             direction26 = direction10;
@@ -950,7 +950,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location27);
+                        weight = location27.distanceSquaredTo(target) + (rc.senseMapInfo(location27).isWall() ? 10000 : 0);;
                         if (distance11 + weight < distance27) {
                             distance27 = distance11 + weight;
                             direction27 = direction11;
@@ -980,7 +980,7 @@ public class Dijkstra20 {
                     case 0:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location31);
+                        weight = location31.distanceSquaredTo(target) + (rc.senseMapInfo(location31).isWall() ? 10000 : 0);;
                         if (distance13 + weight < distance31) {
                             distance31 = distance13 + weight;
                             direction31 = direction13;
@@ -1011,7 +1011,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location32);
+                        weight = location32.distanceSquaredTo(target) + (rc.senseMapInfo(location32).isWall() ? 10000 : 0);;
                         if (distance14 + weight < distance32) {
                             distance32 = distance14 + weight;
                             direction32 = direction14;
@@ -1040,7 +1040,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location36);
+                        weight = location36.distanceSquaredTo(target) + (rc.senseMapInfo(location36).isWall() ? 10000 : 0);;
                         if (distance35 + weight < distance36) {
                             distance36 = distance35 + weight;
                             direction36 = direction35;
@@ -1070,7 +1070,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location37);
+                        weight = location37.distanceSquaredTo(target) + (rc.senseMapInfo(location37).isWall() ? 10000 : 0);;
                         if (distance35 + weight < distance37) {
                             distance37 = distance35 + weight;
                             direction37 = direction35;
@@ -1100,7 +1100,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location41);
+                        weight = location41.distanceSquaredTo(target) + (rc.senseMapInfo(location41).isWall() ? 10000 : 0);;
                         if (distance40 + weight < distance41) {
                             distance41 = distance40 + weight;
                             direction41 = direction40;
@@ -1131,7 +1131,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location42);
+                        weight = location42.distanceSquaredTo(target) + (rc.senseMapInfo(location42).isWall() ? 10000 : 0);;
                         if (distance40 + weight < distance42) {
                             distance42 = distance40 + weight;
                             direction42 = direction40;
@@ -1161,7 +1161,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location28);
+                        weight = location28.distanceSquaredTo(target) + (rc.senseMapInfo(location28).isWall() ? 10000 : 0);;
                         if (distance21 + weight < distance28) {
                             distance28 = distance21 + weight;
                             direction28 = direction21;
@@ -1188,7 +1188,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location29);
+                        weight = location29.distanceSquaredTo(target) + (rc.senseMapInfo(location29).isWall() ? 10000 : 0);;
                         if (distance22 + weight < distance29) {
                             distance29 = distance22 + weight;
                             direction29 = direction22;
@@ -1215,7 +1215,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location33);
+                        weight = location33.distanceSquaredTo(target) + (rc.senseMapInfo(location33).isWall() ? 10000 : 0);;
                         if (distance23 + weight < distance33) {
                             distance33 = distance23 + weight;
                             direction33 = direction23;
@@ -1243,7 +1243,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location34);
+                        weight = location34.distanceSquaredTo(target) + (rc.senseMapInfo(location34).isWall() ? 10000 : 0);;
                         if (distance24 + weight < distance34) {
                             distance34 = distance24 + weight;
                             direction34 = direction24;
@@ -1269,7 +1269,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location38);
+                        weight = location38.distanceSquaredTo(target) + (rc.senseMapInfo(location38).isWall() ? 10000 : 0);;
                         if (distance36 + weight < distance38) {
                             distance38 = distance36 + weight;
                             direction38 = direction36;
@@ -1296,7 +1296,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location39);
+                        weight = location39.distanceSquaredTo(target) + (rc.senseMapInfo(location39).isWall() ? 10000 : 0);;
                         if (distance37 + weight < distance39) {
                             distance39 = distance37 + weight;
                             direction39 = direction37;
@@ -1323,7 +1323,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location43);
+                        weight = location43.distanceSquaredTo(target) + (rc.senseMapInfo(location43).isWall() ? 10000 : 0);;
                         if (distance41 + weight < distance43) {
                             distance43 = distance41 + weight;
                             direction43 = direction41;
@@ -1351,7 +1351,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location44);
+                        weight = location44.distanceSquaredTo(target) + (rc.senseMapInfo(location44).isWall() ? 10000 : 0);;
                         if (distance42 + weight < distance44) {
                             distance44 = distance42 + weight;
                             direction44 = direction42;
@@ -1373,7 +1373,7 @@ public class Dijkstra20 {
             case 3:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location49);
+                weight = location49.distanceSquaredTo(target) + (rc.senseMapInfo(location49).isWall() ? 10000 : 0);;
                 if (distance25 + weight < distance49) {
                     distance49 = distance25 + weight;
                     direction49 = direction25;
@@ -1395,7 +1395,7 @@ public class Dijkstra20 {
             case 4:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location54);
+                weight = location54.distanceSquaredTo(target) + (rc.senseMapInfo(location54).isWall() ? 10000 : 0);;
                 if (distance30 + weight < distance54) {
                     distance54 = distance30 + weight;
                     direction54 = direction30;
@@ -1416,7 +1416,7 @@ public class Dijkstra20 {
             case 3:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location59);
+                weight = location59.distanceSquaredTo(target) + (rc.senseMapInfo(location59).isWall() ? 10000 : 0);;
                 if (distance35 + weight < distance59) {
                     distance59 = distance35 + weight;
                     direction59 = direction35;
@@ -1438,7 +1438,7 @@ public class Dijkstra20 {
             case 4:
                 break;
             default:
-                weight = 1.0 + myLocation.distanceSquaredTo(location64);
+                weight = location64.distanceSquaredTo(target) + (rc.senseMapInfo(location64).isWall() ? 10000 : 0);;
                 if (distance40 + weight < distance64) {
                     distance64 = distance40 + weight;
                     direction64 = direction40;
@@ -1463,7 +1463,7 @@ public class Dijkstra20 {
                     case 0:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location50);
+                        weight = location50.distanceSquaredTo(target) + (rc.senseMapInfo(location50).isWall() ? 10000 : 0);;
                         if (distance26 + weight < distance50) {
                             distance50 = distance26 + weight;
                             direction50 = direction26;
@@ -1494,7 +1494,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location51);
+                        weight = location51.distanceSquaredTo(target) + (rc.senseMapInfo(location51).isWall() ? 10000 : 0);;
                         if (distance27 + weight < distance51) {
                             distance51 = distance27 + weight;
                             direction51 = direction27;
@@ -1525,7 +1525,7 @@ public class Dijkstra20 {
                     case 0:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location55);
+                        weight = location55.distanceSquaredTo(target) + (rc.senseMapInfo(location55).isWall() ? 10000 : 0);;
                         if (distance31 + weight < distance55) {
                             distance55 = distance31 + weight;
                             direction55 = direction31;
@@ -1557,7 +1557,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location56);
+                        weight = location56.distanceSquaredTo(target) + (rc.senseMapInfo(location56).isWall() ? 10000 : 0);;
                         if (distance32 + weight < distance56) {
                             distance56 = distance32 + weight;
                             direction56 = direction32;
@@ -1587,7 +1587,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location60);
+                        weight = location60.distanceSquaredTo(target) + (rc.senseMapInfo(location60).isWall() ? 10000 : 0);;
                         if (distance59 + weight < distance60) {
                             distance60 = distance59 + weight;
                             direction60 = direction59;
@@ -1618,7 +1618,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location61);
+                        weight = location61.distanceSquaredTo(target) + (rc.senseMapInfo(location61).isWall() ? 10000 : 0);;
                         if (distance59 + weight < distance61) {
                             distance61 = distance59 + weight;
                             direction61 = direction59;
@@ -1649,7 +1649,7 @@ public class Dijkstra20 {
                     case 4:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location65);
+                        weight = location65.distanceSquaredTo(target) + (rc.senseMapInfo(location65).isWall() ? 10000 : 0);;
                         if (distance64 + weight < distance65) {
                             distance65 = distance64 + weight;
                             direction65 = direction64;
@@ -1681,7 +1681,7 @@ public class Dijkstra20 {
                     case 4:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location66);
+                        weight = location66.distanceSquaredTo(target) + (rc.senseMapInfo(location66).isWall() ? 10000 : 0);;
                         if (distance64 + weight < distance66) {
                             distance66 = distance64 + weight;
                             direction66 = direction64;
@@ -1712,7 +1712,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location45);
+                        weight = location45.distanceSquaredTo(target) + (rc.senseMapInfo(location45).isWall() ? 10000 : 0);;
                         if (distance38 + weight < distance45) {
                             distance45 = distance38 + weight;
                             direction45 = direction38;
@@ -1740,7 +1740,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location46);
+                        weight = location46.distanceSquaredTo(target) + (rc.senseMapInfo(location46).isWall() ? 10000 : 0);;
                         if (distance43 + weight < distance46) {
                             distance46 = distance43 + weight;
                             direction46 = direction43;
@@ -1768,7 +1768,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location47);
+                        weight = location47.distanceSquaredTo(target) + (rc.senseMapInfo(location47).isWall() ? 10000 : 0);;
                         if (distance39 + weight < distance47) {
                             distance47 = distance39 + weight;
                             direction47 = direction39;
@@ -1797,7 +1797,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location48);
+                        weight = location48.distanceSquaredTo(target) + (rc.senseMapInfo(location48).isWall() ? 10000 : 0);;
                         if (distance44 + weight < distance48) {
                             distance48 = distance44 + weight;
                             direction48 = direction44;
@@ -1824,7 +1824,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location52);
+                        weight = location52.distanceSquaredTo(target) + (rc.senseMapInfo(location52).isWall() ? 10000 : 0);;
                         if (distance28 + weight < distance52) {
                             distance52 = distance28 + weight;
                             direction52 = direction28;
@@ -1856,7 +1856,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location53);
+                        weight = location53.distanceSquaredTo(target) + (rc.senseMapInfo(location53).isWall() ? 10000 : 0);;
                         if (distance29 + weight < distance53) {
                             distance53 = distance29 + weight;
                             direction53 = direction29;
@@ -1888,7 +1888,7 @@ public class Dijkstra20 {
                     case 1:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location57);
+                        weight = location57.distanceSquaredTo(target) + (rc.senseMapInfo(location57).isWall() ? 10000 : 0);;
                         if (distance33 + weight < distance57) {
                             distance57 = distance33 + weight;
                             direction57 = direction33;
@@ -1921,7 +1921,7 @@ public class Dijkstra20 {
                     case 2:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location58);
+                        weight = location58.distanceSquaredTo(target) + (rc.senseMapInfo(location58).isWall() ? 10000 : 0);;
                         if (distance34 + weight < distance58) {
                             distance58 = distance34 + weight;
                             direction58 = direction34;
@@ -1952,7 +1952,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location62);
+                        weight = location62.distanceSquaredTo(target) + (rc.senseMapInfo(location62).isWall() ? 10000 : 0);;
                         if (distance60 + weight < distance62) {
                             distance62 = distance60 + weight;
                             direction62 = direction60;
@@ -1984,7 +1984,7 @@ public class Dijkstra20 {
                     case 3:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location63);
+                        weight = location63.distanceSquaredTo(target) + (rc.senseMapInfo(location63).isWall() ? 10000 : 0);;
                         if (distance61 + weight < distance63) {
                             distance63 = distance61 + weight;
                             direction63 = direction61;
@@ -2016,7 +2016,7 @@ public class Dijkstra20 {
                     case 4:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location67);
+                        weight = location67.distanceSquaredTo(target) + (rc.senseMapInfo(location67).isWall() ? 10000 : 0);;
                         if (distance65 + weight < distance67) {
                             distance67 = distance65 + weight;
                             direction67 = direction65;
@@ -2049,7 +2049,7 @@ public class Dijkstra20 {
                     case 4:
                         break;
                     default:
-                        weight = 1.0 + myLocation.distanceSquaredTo(location68);
+                        weight = location68.distanceSquaredTo(target) + (rc.senseMapInfo(location68).isWall() ? 10000 : 0);;
                         if (distance66 + weight < distance68) {
                             distance68 = distance66 + weight;
                             direction68 = direction66;

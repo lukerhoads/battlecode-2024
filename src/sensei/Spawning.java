@@ -14,10 +14,10 @@ public class Spawning {
         MapLocation[] spawnLocations = rc.getAllySpawnLocations();
         for (int i=spawnLocations.length; --i>=0;) {
             if (rc.canSpawn(spawnLocations[i])) {
-                int flagIndex = blitzer.Utilities.locationListContains(RobotPlayer.startingAllyFlagLocations, spawnLocations[i]);
-                if (flagIndex != -1) RobotPlayer.assignedAllyFlag = flagIndex; 
                 rc.spawn(spawnLocations[i]);
-                if (spawnLocations.length - i < 4) RobotPlayer.levelGrinder = true;
+                RobotPlayer.spawnLocation = spawnLocations[i];
+                RobotPlayer.reflectedSpawnLocation = blitzer.Utilities.reflectLocation(rc, spawnLocations[i]);
+                if (i % 25 == 0) RobotPlayer.levelGrinder = true;
                 else break;
             }
         }

@@ -15,12 +15,20 @@ public class Utilities {
         if (rc.canBuyGlobal(GlobalUpgrade.CAPTURING)) rc.buyGlobal(GlobalUpgrade.CAPTURING);
     }
 
-    public static int locationListContains(MapLocation[] lst, MapLocation obj) {
+    public static int locationListIndex(MapLocation[] lst, MapLocation obj) {
         for (int i=lst.length; --i>=0;) {
-            if (lst[i].equals(obj)) i;
+            if (lst[i].equals(obj)) return i;
         }
 
         return -1;
+    }
+
+    public static boolean locationListContains(MapLocation[] lst, MapLocation obj) {
+        for (int i=lst.length; --i>=0;) {
+            if (lst[i].equals(obj)) return true;
+        }
+
+        return false;
     }
 
     public static int minIndex(int[] list) {
@@ -132,5 +140,9 @@ public class Utilities {
     public static void incrementSharedArray(RobotController rc, int index) throws GameActionException {
         int val = rc.readSharedArray(index);
         rc.writeSharedArray(index, val + 1);
+    }
+
+    public static MapLocation reflectLocation(RobotController rc, MapLocation loc) throws GameActionException {
+        return new MapLocation(rc.getMapWidth() - loc.x, rc.getMapHeight() - loc.y);
     }
 }

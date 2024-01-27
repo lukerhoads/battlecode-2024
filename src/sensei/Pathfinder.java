@@ -30,6 +30,7 @@ public class Pathfinder {
     static Dijkstra6 djik6;
     static Dijkstra13 djik13;
     static Dijkstra20 djik20;
+    static boolean hitObstacle;
 
     public Pathfinder(RobotController rc) {
         djik6 = new Dijkstra6(rc);
@@ -37,7 +38,13 @@ public class Pathfinder {
         djik20 = new Dijkstra20(rc);
     }
 
+    static MapLocation lastLoc;
     public static void moveTowards(RobotController rc, MapLocation dest) throws GameActionException {
+        bfsMove(rc, dest);
+    }
+
+    public static void bfsMove(RobotController rc, MapLocation dest) throws GameActionException {
+        lastLoc = rc.getLocation();
         int bytecodeLeft = Clock.getBytecodesLeft();
         Direction dir;
         if (bytecodeLeft < 3000) {
@@ -48,13 +55,25 @@ public class Pathfinder {
             dir = djik20.getBestDirection(dest, rc.getLocation().directionTo(dest).opposite());
         }
         if (dir != null) {
-            if (rc.canMove(dir)) rc.move(dir);
-            else if (rc.canFill(rc.getLocation().add(dir))) rc.fill(rc.getLocation().add(dir));
+            MapLocation newLoc = rc.getLocation().add(dir);
+            if (rc.onTheMap(newLoc)) {
+                if (rc.senseMapInfo(newLoc).isWall()) {
+                    hitObstacle = true;
+                    return;
+                }
+                if (rc.canMove(dir)) {
+                    hitObstacle = false;
+                    rc.move(dir);
+                } else if (rc.canFill(newLoc)) {
+                    rc.fill(newLoc);
+                }
+            }
         }
     }
 
     public static void moveRandom(RobotController rc) throws GameActionException {
         Direction randomDir = Direction.allDirections()[RobotPlayer.rng.nextInt(8)];
-        if (rc.canMove(randomDir)) rc.move(randomDir);
+        while (!rc.canMove(randomDir)) randomDir = Direction.allDirections()[RobotPlayer.rng.nextInt(8)];
+        rc.move(randomDir);
     }
 }

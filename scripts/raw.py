@@ -160,7 +160,7 @@ public class Dijkstra{vision_radius} {{
         id = offsets[(dx, dy)]["id"]
         predecessors = offsets[(dx, dy)]["predecessors"]
 
-        weight = f"1.0 + myLocation.distanceSquaredTo(location{id})"
+        weight = f"location{id}.distanceSquaredTo(target) + (rc.senseMapInfo(location{id}).isWall() ? 10000 : 0);"
 
         if distance(dx, dy) <= 2:
             content += f"""
